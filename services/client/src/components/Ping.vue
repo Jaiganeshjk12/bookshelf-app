@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     getMessage() {
-      const path = 'http://hello.world/books/ping';
+      const path = 'http://bookshelf.aws.kasten.io/books/ping';
       axios.get(path)
         .then((res) => {
           this.msg = res.data;
