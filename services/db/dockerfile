@@ -1,5 +1,6 @@
 # base image
-FROM postgres:12.1-alpine
+FROM library/postgres
 
 # run create.sql on init
-ADD create.sql /docker-entrypoint-initdb.d
+COPY create.sql /docker-entrypoint-initdb.d
+RUN chmod -R 775 /docker-entrypoint-initdb.d
