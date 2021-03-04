@@ -1,13 +1,17 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: vue
+  name: flask-vue
   labels:
-    service: vue
-  name: vue
+    service: flask-vue
+  name: flask-vue
 spec:
   selector:
-    app: vue
+    app: flask-vue
   ports:
   - port: 8080
     targetPort: 8080
+    name: vue
+  - port: 5000
+    targetPort: 5000
+    name: flask
