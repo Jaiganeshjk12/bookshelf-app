@@ -1,12 +1,10 @@
-# Running Flask on Kubernetes
+# Running Bookshelf-app on Kubernetes
 
 ## Want to learn how to build this?
 
 Check out the [post](https://testdriven.io/running-flask-on-kubernetes).
 
-## Want to use this project?
-
-#### Building the images
+#### Building the images and pushing to your own repository
 ##### Flask
 
 Build and push the image to Docker Hub:
@@ -45,10 +43,17 @@ kubectl create namespace bookshelf-app
 #Apply all the manifests in the kubernetes directory
 kubectl -n bookshelf-app create -f . 
 ```
-## Deploy into Kubernetes Cluster using helm chart
+### Deploy into Kubernetes Cluster using helm chart
+Refer [Configurable helm values](#configurable-helm-values) for all the flags that can be configured with this chart.
+
 ```sh
-helm repo add bookshelf https://jaiganeshjk12.github.io/flask-vue-kubernetes/helm/bookshelf-app
+#add the helm repo 
+helm repo add bookshelf https://jaiganeshjk12.github.io/bookshelf-app/
+
+#create the namespace in which you will be installing the application
 kubectl create namespace bookshelf-app
+
+#install helm with custom values. 
 helm install bookshelf-app bookshelf/bookshelf-app -n bookshelf-app --set database.volume.storageClassName=<storageClassName>
 ```
 
@@ -59,9 +64,10 @@ Use the port-forward as shown below to access the application
 kubectl port-forward svc/flask-vue -n flask 8080:8080 5000:5000
 ```
 Try the bookshelf app at [http://localhost:8080/](http://localhost:8080/).
+
 Try the flask endpoint at [http://localhost:5000/books](http://localhost:5000/books).
 
-### Configurable helm values
+## Configurable helm values
 
 parameter|description|default
 ---------|-----------|-------
