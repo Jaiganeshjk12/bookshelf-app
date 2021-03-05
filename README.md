@@ -6,7 +6,7 @@ Check out the [post](https://testdriven.io/running-flask-on-kubernetes).
 
 ## Want to use this project?
 
-#### Building the images
+#### Building the images and pushing to your own repository
 ##### Flask
 
 Build and push the image to Docker Hub:
