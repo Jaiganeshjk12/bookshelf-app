@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: flask-vue
+  name: flask-vue
+  namespace: {{ .Release.Namespace }}
+spec:
+  progressDeadlineSeconds: 2147483647
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-vue
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: flask-vue
+    spec:
+      containers:
+      - image: {{ .Values.image.flaskvue }}
+        imagePullPolicy: Always
+        name: vue
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      - env:
+        - name: FLASK_ENV
+          value: development
+        - name: APP_SETTINGS
+          value: project.config.DevelopmentConfig
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              key: user
+              name: postgres-credentials
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: postgres-credentials
+        image: {{ .Values.image.flaskapp }}
+        imagePullPolicy: Always
+        name: flask
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30

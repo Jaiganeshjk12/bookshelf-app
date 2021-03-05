@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: database
+  name: postgres
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: postgres
+  serviceName: postgres-headless
+  template:
+    metadata:
+      labels:
+        service: postgres
+    spec:
+      containers:
+      - name: postgres
+        image:  {{ .Values.image.flaskdb }}
+        env:
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: postgres-credentials
+                key: user
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: postgres-credentials
+                key: password
+          - name: POSTGRES_DB
+            value: books
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: postgres-pv-claim
+          subPath: data
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+  volumeClaimTemplates:
+  - metadata:
+      name: postgres-pv-claim
+    spec:
+      accessModes: {{ .Values.database.volume.accessModes }}
+      storageClassName: {{ .Values.database.volume.storageClassName }}
+      resources:
+        requests:
+          storage: {{ .Values.database.volume.resourceRequests.storage }}

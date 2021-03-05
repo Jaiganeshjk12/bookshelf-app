@@ -1,0 +1,10 @@
+** Please be patient while the chart is being deployed **
+
+PostgreSQL can be accessed via port {{ .Values.database.port.defaultPort }}
+
+Use the below command to access the application from the local machine
+
+kubectl port-forward svc/flask-vue -n flask 8080:8080 5000:5000
+
+Bookshelf-app can be accessed via http://localhost:8080
+Server end point via http://localhost:5000/books

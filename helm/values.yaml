@@ -1,0 +1,18 @@
+# Default values for helm.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+image:
+  flaskapp: jaiganeshjk/flask-app:latest
+  flaskvue: jaiganeshjk/flask-vue:latest
+  flaskdb: postgres:12.1-alpine
+database:
+  volume:
+    storageClassName: gp2
+    resourceRequests:
+      storage: 20Gi
+    accessModes: [ "ReadWriteOnce" ]
+  port:
+    defaultPort: 5432
+  credentials:
+    postgresuser: postgres
+    postgrespasswd: pleasechangeme
