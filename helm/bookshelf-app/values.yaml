@@ -7,7 +7,7 @@ image:
   flaskdb: postgres:12.1-alpine
 database:
   volume:
-    storageClassName: ""
+    storageClassName: null
     resourceRequests:
       storage: 20Gi
     accessModes: [ "ReadWriteOnce" ]
