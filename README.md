@@ -66,6 +66,7 @@ Use the port-forward as shown below to access the application
 kubectl port-forward svc/flask-vue -n flask 8080:8080 5000:5000
 ```
 Try the bookshelf app at [http://localhost:8080/](http://localhost:8080/).
+
 Try the flask endpoint at [http://localhost:5000/books](http://localhost:5000/books).
 
 ## Configurable helm values
