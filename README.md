@@ -74,7 +74,7 @@ parameter|description|default
 image.flaskapp|configure custom image for flask server component|jaiganeshjk/flask-app:latest
 image.flaskvue|configure custom image for Vue client|jaiganeshjk/flask-vue:latest
 image.flaskdb|configure custom image for postgres database|postgres:12.1-alpine
-database.volume.storageClassName|configure storage class name based on the platform|gp2
+database.volume.storageClassName|configure storage class name based on the platform|""
 database.volume.resourceRequests.storage|size for the postgres PVC|20Gi
 database.volume.accessModes|Access mode for the PVC|[ "ReadWriteOnce" ]
 database.port.defaultPort|Postgres default port|5432
