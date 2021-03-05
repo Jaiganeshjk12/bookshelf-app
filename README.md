@@ -45,9 +45,9 @@ kubectl create namespace bookshelf-app
 #Apply all the manifests in the kubernetes directory
 kubectl -n bookshelf-app create -f . 
 ```
-## Deploy into Kubernetes Cluster using helm chart
+### Deploy into Kubernetes Cluster using helm chart
 ```sh
-helm repo add bookshelf https://jaiganeshjk12.github.io/flask-vue-kubernetes/helm/bookshelf-app
+helm repo add bookshelf https://jaiganeshjk12.github.io/bookshelf-app/
 kubectl create namespace bookshelf-app
 helm install bookshelf-app bookshelf/bookshelf-app -n bookshelf-app --set database.volume.storageClassName=<storageClassName>
 ```
@@ -61,7 +61,7 @@ kubectl port-forward svc/flask-vue -n flask 8080:8080 5000:5000
 Try the bookshelf app at [http://localhost:8080/](http://localhost:8080/).
 Try the flask endpoint at [http://localhost:5000/books](http://localhost:5000/books).
 
-### Configurable helm values
+## Configurable helm values
 
 parameter|description|default
 ---------|-----------|-------
