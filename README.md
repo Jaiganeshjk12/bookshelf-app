@@ -1,10 +1,8 @@
-# Running Flask on Kubernetes
+# Running Bookshelf-app on Kubernetes
 
 ## Want to learn how to build this?
 
 Check out the [post](https://testdriven.io/running-flask-on-kubernetes).
-
-## Want to use this project?
 
 #### Building the images and pushing to your own repository
 ##### Flask
