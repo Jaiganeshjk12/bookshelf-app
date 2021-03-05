@@ -9,6 +9,6 @@ entries:
     name: bookshelf-app
     type: application
     urls:
-    - https://jaiganeshjk.github.io/helm/bookshelf-app-0.1.0.tgz
+    - https://jaiganeshjk.github.io//flask-vue-kubernetes/helm/bookshelf-app/bookshelf-app-0.1.0.tgz
     version: 0.1.0
 generated: "2021-03-05T13:36:21.217545889+05:30"
