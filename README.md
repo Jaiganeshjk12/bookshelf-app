@@ -46,9 +46,16 @@ kubectl create namespace bookshelf-app
 kubectl -n bookshelf-app create -f . 
 ```
 ### Deploy into Kubernetes Cluster using helm chart
+Refer [Configurable helm values](#configurable-helm-values) for all the flags that can be configured with this chart.
+
 ```sh
+#add the helm repo 
 helm repo add bookshelf https://jaiganeshjk12.github.io/bookshelf-app/
+
+#create the namespace in which you will be installing the application
 kubectl create namespace bookshelf-app
+
+#install helm with custom values. 
 helm install bookshelf-app bookshelf/bookshelf-app -n bookshelf-app --set database.volume.storageClassName=<storageClassName>
 ```
 
