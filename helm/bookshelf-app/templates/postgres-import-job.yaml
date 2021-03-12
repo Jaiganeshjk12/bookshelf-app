@@ -10,7 +10,7 @@ spec:
       creationTimestamp: null
     spec:
       containers:
-      - image: postgres-import-job-wf24x
+      - image: jaiganeshjk/flask-import:latest
         name: postgres-import-job
         env:
           - name: POSTGRES_USER
