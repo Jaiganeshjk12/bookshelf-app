@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  name: postgres-import-job
+  namespace: bookshelf-app
+spec:
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - image: docker.io/bitnami/postgresql:11.11.0-debian-10-r9
+        name: postgres-import-job
+        resources: {}
+      restartPolicy: Never
+status: {}
