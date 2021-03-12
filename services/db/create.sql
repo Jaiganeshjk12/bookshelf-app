@@ -1,3 +1,4 @@
+CREATE DATABASE books;
 \c books
 CREATE TABLE books(
 id INT NOT NULL,
