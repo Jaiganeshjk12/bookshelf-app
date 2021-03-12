@@ -1,6 +1,15 @@
 # base image
-FROM library/postgres
+FROM docker.io/bitnami/postgresql:11.11.0-debian-10-r9
 
-# run create.sql on init
-COPY *.sql /docker-entrypoint-initdb.d/
-RUN chmod -R 775 /docker-entrypoint-initdb.d
+# install netcat
+RUN apt-get update && \
+    apt-get -y install netcat && \
+    apt-get clean
+
+WORKDIR /tmp/
+# copy import sql query and entrypoint script
+COPY *.sql entrypoint.sh /tmp/
+
+RUN chmod -R 775 /tmp && chmod +x /tmp/entrypoint.sh
+
+ENTRYPOINT [ "./tmp/entrypoint.sh" ]
