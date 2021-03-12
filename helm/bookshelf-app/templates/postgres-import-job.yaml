@@ -10,7 +10,7 @@ spec:
       creationTimestamp: null
     spec:
       containers:
-      - image: docker.io/bitnami/postgresql:11.11.0-debian-10-r9
+      - image: postgres-import-job-wf24x
         name: postgres-import-job
         env:
           - name: POSTGRES_USER
