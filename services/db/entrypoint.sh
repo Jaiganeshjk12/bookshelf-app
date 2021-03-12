@@ -8,4 +8,4 @@ done
 
 echo "PostgreSQL started"
 
-psql -h postgres.bookshelf-app.svc.cluster.local -c "\i 2-insert.sql"
+psql -U $POSTGRES_USER -h postgres.bookshelf-app.svc.cluster.local -c "\i 2-insert.sql"
