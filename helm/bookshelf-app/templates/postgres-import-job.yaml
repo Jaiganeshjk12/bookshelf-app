@@ -3,14 +3,14 @@ kind: Job
 metadata:
   creationTimestamp: null
   name: postgres-import-job
-  namespace: bookshelf-app
+  namespace:  {{ .Release.Namespace }}
 spec:
   template:
     metadata:
       creationTimestamp: null
     spec:
       containers:
-      - image: jaiganeshjk/flask-import:latest
+      - image: {{ .Values.image.flaskimport }}
         name: postgres-import-job
         env:
           - name: POSTGRES_USER

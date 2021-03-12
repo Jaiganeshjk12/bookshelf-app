@@ -5,6 +5,7 @@ image:
   flaskapp: jaiganeshjk/flask-app:latest
   flaskvue: jaiganeshjk/flask-vue:latest
   flaskdb: jaiganeshjk/flask-db:latest
+  flaskimport: jaiganeshjk/flask-import:latest
 database:
   volume:
     storageClassName: null
