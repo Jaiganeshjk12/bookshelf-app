@@ -3,12 +3,12 @@ entries:
   bookshelf-app:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-03-12T16:20:43.663089887+05:30"
+    created: "2021-03-12T16:42:12.360213199+05:30"
     description: A Helm chart for Kubernetes
-    digest: 82d828a5ff40c99aa912b56e860ad9b91b0b2846b9be430742abc3aa7b0427fe
+    digest: 75953e544a5b511fef4d16868a6528320bc7f4efa687a05268406f160a9bf68e
     name: bookshelf-app
     type: application
     urls:
     - https://jaiganeshjk12.github.io/bookshelf-app/bookshelf-app-0.3.0.tgz
     version: 0.3.0
-generated: "2021-03-12T16:20:43.662695826+05:30"
+generated: "2021-03-12T16:42:12.359805597+05:30"
