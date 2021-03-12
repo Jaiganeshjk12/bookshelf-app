@@ -6,7 +6,6 @@ while ! nc -z postgres 5432; do
   sleep 0.1
 done
 
-python manage.py recreate_db
 python manage.py seed_db
 
 echo "PostgreSQL started"
