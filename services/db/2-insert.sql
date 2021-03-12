@@ -1,6 +1,6 @@
 \c books
 CREATE TABLE books (
-id INT,
+id SERIAL PRIMARY KEY,
 title  VARCHAR    NOT NULL,
 author VARCHAR    NOT NULL,
 read   BOOL
