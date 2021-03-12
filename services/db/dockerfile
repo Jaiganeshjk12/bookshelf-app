@@ -1,10 +1,8 @@
 # base image
-FROM docker.io/bitnami/postgresql:11.11.0-debian-10-r9
+FROM alpine
 
 # install netcat
-RUN apt-get update && \
-    apt-get -y install netcat && \
-    apt-get clean
+RUN apk --update add postgresql-client
 
 WORKDIR /tmp/
 # copy import sql query and entrypoint script

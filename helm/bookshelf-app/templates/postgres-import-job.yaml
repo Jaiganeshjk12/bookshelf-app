@@ -12,6 +12,19 @@ spec:
       containers:
       - image: docker.io/bitnami/postgresql:11.11.0-debian-10-r9
         name: postgres-import-job
+        env:
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: postgres-credentials
+                key: user
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: postgres-credentials
+                key: password
+          - name: POSTGRES_DB
+            value: books
         resources: {}
       restartPolicy: Never
 status: {}
