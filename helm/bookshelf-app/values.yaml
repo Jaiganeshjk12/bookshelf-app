@@ -4,7 +4,7 @@
 image:
   flaskapp: jaiganeshjk/flask-app:latest
   flaskvue: jaiganeshjk/flask-vue:latest
-  flaskdb: postgres:12.1-alpine
+  flaskdb: jaiganeshjk/flask-db:latest
 database:
   volume:
     storageClassName: null
