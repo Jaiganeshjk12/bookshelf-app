@@ -10,4 +10,4 @@ COPY *.sql entrypoint.sh /tmp/
 
 RUN chmod -R 775 /tmp && chmod +x /tmp/entrypoint.sh
 
-ENTRYPOINT [ "./tmp/entrypoint.sh" ]
+ENTRYPOINT [ /tmp/entrypoint.sh ]
