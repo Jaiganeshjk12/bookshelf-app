@@ -1,3 +1,4 @@
+\c books
 CREATE TABLE books(
 id INT NOT NULL,
 title  VARCHAR    NOT NULL,
